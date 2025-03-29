@@ -3,119 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vijay Kumar - Embedded Systems Engineer</title>
+    <title>Vijay's Bio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            color: #2c3e50;
-        }
-        .hero {
-            background-color: #dc3545;
-            color: white;
-            padding: 50px;
-            text-align: center;
-        }
-        .profile-img {
-            border-radius: 10px;
-            max-width: 100%;
-        }
-        .animated-text {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 1s ease-in-out;
-        }
-        .animated-text.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .bullet-list {
-            text-align: justify;
-            padding-left: 20px;
-        }
+        body { font-family: Helvetica, sans-serif; text-align: center; margin: 50px; background-color: #87CEEB; }
+        h1 { color: #2c3e50; }
+        p { font-size: 18px; text-align: justify; }
+        .container { max-width: 900px; margin: auto; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; margin-right: 20px; }
+        .profile-container { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+        .animated-text { font-weight: bold; font-size: 24px; color: #007bff; }
+        .social-icons { margin-top: 15px; }
+        .social-icons a { margin: 0 10px; font-size: 24px; color: #2c3e50; text-decoration: none; transition: color 0.3s; }
+        .social-icons a:hover { color: #007bff; }
+        .icon { margin-right: 10px; color: #007bff; }
+        .skills-list { list-style: none; padding: 0; }
+        .skills-list li { display: flex; align-items: center; font-size: 18px; margin: 10px 0; }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Vijay Kumar</h1>
-        <h3>Embedded Systems Engineer</h3>
-        <p>Expert in Embedded Design, IoT, PCB Design, and Firmware Development.</p>
-        <a href="https://linkedin.com/in/your-profile" class="btn btn-light mt-3" target="_blank">Connect on LinkedIn</a>
-        <a href="resume.pdf" class="btn btn-dark mt-3" target="_blank">Download Resume</a>
-    </div>
-    
-    <!-- About Section -->
-    <div class="container section">
-        <div class="row align-items-center">
-            <div class="col-md-4">
-                <img src="profile.jpg" alt="Vijay Kumar" class="profile-img">
-            </div>
-            <div class="col-md-8 animated-text">
-                <h2>About Me</h2>
-                <p class="text-justify">I specialize in designing high-performance embedded systems, IoT solutions, and PCB layouts. Passionate about building innovative sensor technologies.</p>
-                <ul class="bullet-list">
-                    <li>9+ years of experience in embedded hardware & software</li>
-                    <li>Expertise in PCB design, STM32, ARM Cortex-M4</li>
-                    <li>Developed 5+ air quality monitoring products</li>
-                    <li>Patent holder in image-based air quality monitoring</li>
-                    <li>Proficient in C, C++, Python for embedded applications</li>
-                    <li>Experience with IoT protocols: MQTT, LoRa, Zigbee</li>
-                    <li>Worked with RS485 Modbus, SPI, I2C, UART</li>
-                    <li>Firmware development and optimization</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <div class="container section text-center">
-        <h2>What I Do</h2>
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class="card p-3">
-                    <h4>Embedded System Design</h4>
-                    <p>Developing robust and scalable embedded solutions.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card p-3">
-                    <h4>Firmware Development</h4>
-                    <p>Writing efficient code for real-time applications.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card p-3">
-                    <h4>PCB Design</h4>
-                    <p>Designing high-quality PCBs for embedded applications.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card p-3">
-                    <h4>IoT Solutions</h4>
-                    <p>Connecting devices using IoT protocols for smart applications.</p>
+    <div class="container">
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Profile Image" class="profile-img">
+            <div>
+                <h1><i class="fas fa-microchip icon"></i> Vijay - Embedded Systems Engineer</h1>
+                <p class="animated-text">Expert in Embedded Systems, PCB Design, and IoT Integration.</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
                 </div>
             </div>
         </div>
+        <h2><i class="fas fa-user icon"></i> About Me</h2>
+        <p>With 9+ years of experience in embedded systems, I specialize in designing sensor instruments, PCB development, and firmware engineering.</p>
+        <h2><i class="fas fa-cogs icon"></i> Skills & Expertise</h2>
+        <ul class="skills-list">
+            <li><i class="fas fa-microchip icon"></i> Embedded System Development</li>
+            <li><i class="fas fa-bolt icon"></i> PCB Design & Hardware Prototyping</li>
+            <li><i class="fas fa-wifi icon"></i> IoT Solutions & Wireless Communication</li>
+            <li><i class="fas fa-exchange-alt icon"></i> Modbus, UART, SPI, I2C Protocols</li>
+            <li><i class="fas fa-brain icon"></i> AI-Based Image Processing for Air Quality Monitoring</li>
+        </ul>
     </div>
-
-    <!-- Contact Section -->
-    <div class="container section text-center">
-        <h2>Contact Me</h2>
-        <p>Email: vijay@example.com | Phone: +91 XXXXXXXXXX</p>
-        <a href="mailto:vijay@example.com" class="btn btn-primary">Email Me</a>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let animatedElements = document.querySelectorAll(".animated-text");
-            animatedElements.forEach(el => el.classList.add("visible"));
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
