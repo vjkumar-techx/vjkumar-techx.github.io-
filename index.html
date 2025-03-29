@@ -36,30 +36,16 @@
         .nav-link:hover::after, .nav-link.active::after {
             width: 50%;
         }
-        .bio-container {
-            max-width: 800px;
-            margin: 80px auto 50px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .content-section {
+            display: none;
             opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease-out forwards;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .btn-animate:hover {
-            transform: scale(1.1);
-            transition: 0.3s;
+        .active-section {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -72,52 +58,50 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#home" onclick="showSection('home')">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" onclick="showSection('about')">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio" onclick="showSection('portfolio')">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog" onclick="showSection('blog')">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" onclick="showSection('contact')">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    <div class="container text-center">
-        <div class="bio-container">
-            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Profile Picture">
-            <h2>Embedded Systems Engineer</h2>
-            <p class="text-muted">CTO | Research Engineer | IoT & Sensor Specialist</p>
-            <p>Passionate about embedded hardware & software design. Specialized in STM32, ARM Cortex-M4, and air quality monitoring solutions.</p>
-            <h4>Expertise</h4>
-            <p>Embedded systems, sensor technology, IoT, firmware development, and PCB design.</p>
-            <h4>Experience</h4>
-            <p>9+ years in embedded systems, specializing in STM32, ARM Cortex-M4, and sensor instruments.</p>
-            <h4>Key Projects</h4>
-            <ul class="text-start">
-                <li>Developed a bright-field microscopy-based system for detecting and identifying particulate matter using Raspberry Pi and OpenCV.</li>
-                <li>Designed PM2.5 samplers and multiple air quality monitoring products.</li>
-                <li>Created a Zigbee-based transmitter for sensor modules at IIT Madras.</li>
-                <li>Designed RS485 Modbus-based data loggers and IoT-integrated solutions.</li>
-            </ul>
-            <h4>Roles & Achievements</h4>
-            <ul class="text-start">
-                <li>CTO & Research Engineer in R&D (current).</li>
-                <li>Co-founder of an IIT Madras startup.</li>
-                <li>Project Associate at IIT Madras (worked on Zigbee-based sensor networks).</li>
-                <li>Technical Trainee at IIT Madras (worked on power electronics & instrumentation).</li>
-                <li>Awarded for Technical Performance Excellence.</li>
-            </ul>
-            <h4>Patents</h4>
-            <ul class="text-start">
-                <li>One for a field-portable optical microscopic imaging device for air quality monitoring.</li>
-                <li>Two more patents from collaborations with IIT Delhi & IIT Madras (image-based & sensor network applications).</li>
-            </ul>
-            <h4>Skills</h4>
-            <p>Raspberry Pi, STM32, ARM Cortex-M4, OpenCV, Modbus (RS485), SPI, I2C, UART, PHP, MySQL.</p>
-            <h4>Location</h4>
-            <p>Chennai</p>
-            <a href="#contact" class="btn btn-primary btn-animate">Contact Me</a>
+    <div class="container text-center mt-4">
+        <div id="home" class="content-section active-section">
+            <h2>Welcome to My Bio</h2>
+            <p>CTO | Research Engineer | IoT & Sensor Specialist</p>
+        </div>
+        <div id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>Embedded systems, sensor technology, IoT, firmware development, and PCB design expert with 9+ years of experience.</p>
+        </div>
+        <div id="portfolio" class="content-section">
+            <h2>Portfolio</h2>
+            <p>Projects including STM32 development, OpenCV, IoT solutions, and more.</p>
+        </div>
+        <div id="blog" class="content-section">
+            <h2>Blog</h2>
+            <p>Latest articles on embedded systems, IoT, and AI-powered sensing.</p>
+        </div>
+        <div id="contact" class="content-section">
+            <h2>Contact Me</h2>
+            <p>Email: example@email.com | LinkedIn: linkedin.com/example</p>
         </div>
     </div>
+    
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            document.getElementById(sectionId).classList.add('active-section');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.nav-link[href='#${sectionId}']`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
