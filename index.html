@@ -3,56 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vijay's Bio</title>
+    <title>Vijay Kumar | Embedded Systems Engineer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: #f4f4f4;
             color: #333;
+            text-align: center;
         }
         .container {
-            max-width: 600px;
-            margin: 50px auto;
+            max-width: 800px;
+            margin: auto;
+            padding: 50px;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
             padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
         }
-        h1 {
-            color: #2c3e50;
+        section {
+            padding: 50px 20px;
+            transition: all 0.5s ease-in-out;
         }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
+        .intro, .skills, .contact {
+            opacity: 0;
+            transform: translateY(30px);
         }
-        .social-links a {
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .button {
             display: inline-block;
-            margin: 10px;
             padding: 10px 20px;
+            margin: 10px;
             text-decoration: none;
             color: #fff;
             background: #0077b5;
             border-radius: 5px;
+            transition: 0.3s;
         }
-        .social-links a:hover {
+        .button:hover {
             background: #005582;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Vijay Kumar</h1>
-        <h2>Embedded Systems Engineer | IoT Innovator | PCB Designer</h2>
-        <p>With over 9 years of experience in embedded systems, sensor technology, and PCB design, I specialize in developing cutting-edge solutions for air quality monitoring, IoT devices, and industrial automation.</p>
-        <p>My expertise includes working with STM32, ARM Cortex-M4, Raspberry Pi, RS485 Modbus, and IoT integration. Passionate about clean, scalable code and optimizing hardware-software interfacing.</p>
-        <div class="social-links">
-            <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
-            <a href="https://github.com/your-github" target="_blank">GitHub</a>
-            <a href="mailto:your-email@example.com">Email Me</a>
-        </div>
+        <p>Embedded Systems Engineer | IoT Innovator | PCB Designer</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>About Me</h2>
+            <p>With 9+ years of experience in **Embedded Systems, IoT, and PCB Design**, I specialize in creating innovative air quality monitoring, industrial automation, and sensor-based products.</p>
+        </section>
+        
+        <section class="skills">
+            <h2>Expertise</h2>
+            <p>✔ Embedded Systems (STM32, ARM Cortex-M4, Raspberry Pi)<br>
+               ✔ IoT Integration & Sensor Networks<br>
+               ✔ PCB Design & Hardware-Software Interfacing<br>
+               ✔ Industrial Automation & RS485 Modbus</p>
+        </section>
+        
+        <section class="contact">
+            <h2>Connect With Me</h2>
+            <a href="https://linkedin.com/in/your-profile" target="_blank" class="button">LinkedIn</a>
+            <a href="https://github.com/your-github" target="_blank" class="button">GitHub</a>
+            <a href="mailto:your-email@example.com" class="button">Email Me</a>
+        </section>
     </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let sections = document.querySelectorAll("section");
+            let options = { threshold: 0.5 };
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, options);
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
