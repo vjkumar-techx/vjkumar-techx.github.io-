@@ -11,97 +11,63 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f8f9fa;
+            scroll-behavior: smooth;
         }
         .navbar {
-            background: #f8f9fa;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: #343a40;
         }
         .nav-link {
-            position: relative;
-            color: #000;
-            padding: 10px 15px;
+            color: white !important;
+            transition: color 0.3s;
         }
-        .nav-link::after {
-            content: '';
-            display: block;
-            height: 2px;
-            width: 0;
-            background: black;
-            transition: width 0.3s ease-in-out;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+        .nav-link:hover {
+            color: #f8f9fa !important;
         }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 50%;
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding-top: 60px;
         }
-        .content-section {
-            display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-        .active-section {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
+        #home { background: #007bff; }
+        #about { background: #28a745; }
+        #portfolio { background: #ffc107; }
+        #blog { background: #dc3545; }
+        #contact { background: #6c757d; }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">My Bio</a>
+            <a class="navbar-brand" href="#home">My Bio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#home" onclick="showSection('home')">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about" onclick="showSection('about')">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio" onclick="showSection('portfolio')">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog" onclick="showSection('blog')">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact" onclick="showSection('contact')">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    <div class="container text-center mt-4">
-        <div id="home" class="content-section active-section">
-            <h2>Welcome to My Bio</h2>
-            <p>CTO | Research Engineer | IoT & Sensor Specialist</p>
-        </div>
-        <div id="about" class="content-section">
-            <h2>About Me</h2>
-            <p>Embedded systems, sensor technology, IoT, firmware development, and PCB design expert with 9+ years of experience.</p>
-        </div>
-        <div id="portfolio" class="content-section">
-            <h2>Portfolio</h2>
-            <p>Projects including STM32 development, OpenCV, IoT solutions, and more.</p>
-        </div>
-        <div id="blog" class="content-section">
-            <h2>Blog</h2>
-            <p>Latest articles on embedded systems, IoT, and AI-powered sensing.</p>
-        </div>
-        <div id="contact" class="content-section">
-            <h2>Contact Me</h2>
-            <p>Email: example@email.com | LinkedIn: linkedin.com/example</p>
-        </div>
-    </div>
-    
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active-section');
-            });
-            document.getElementById(sectionId).classList.add('active-section');
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            document.querySelector(`.nav-link[href='#${sectionId}']`).classList.add('active');
-        }
-    </script>
+    <div id="home" class="section">Welcome to My Bio</div>
+    <div id="about" class="section">About Me - Embedded Systems Expert</div>
+    <div id="portfolio" class="section">Portfolio - My Projects</div>
+    <div id="blog" class="section">Blog - Latest Insights</div>
+    <div id="contact" class="section">Contact - Get in Touch</div>
 </body>
 </html>
