@@ -31,6 +31,7 @@
         }
         .section {
             padding: 80px 20px;
+            text-align: justify;
         }
         .btn-custom {
             border-radius: 30px;
@@ -57,6 +58,15 @@
         @keyframes stayStable {
             0% { opacity: 1; }
             100% { opacity: 1; }
+        }
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-in-out;
+        }
+        .scroll-animation.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         #about {
             font-family: Helvetica, sans-serif;
@@ -90,30 +100,42 @@
         </div>
     </header>
     
-    <section id="about" class="section text-center">
+    <section id="about" class="section scroll-animation">
         <div class="container">
             <h2>About Me</h2>
-            <p>With over 9 years of experience in Embedded Systems, IoT Development, and PCB Design, I have contributed to cutting-edge air quality monitoring, industrial automation, and smart sensor technology. My expertise lies in designing efficient hardware-software solutions that bridge innovation with real-world applications.</p>
+            <ul>
+                <li>9+ years of experience in Embedded Systems, IoT Development, and PCB Design.</li>
+                <li>Expert in designing air quality monitoring, industrial automation, and smart sensors.</li>
+                <li>Passionate about bridging hardware and software for innovative solutions.</li>
+            </ul>
         </div>
     </section>
     
-    <section id="skills" class="section bg-light text-center">
+    <section id="skills" class="section bg-light text-center scroll-animation">
         <div class="container">
             <h2>Expertise</h2>
-            <p>Embedded Systems | IoT Integration | PCB Design | Sensor Networks | Industrial Automation | AI in Embedded Systems</p>
+            <ul>
+                <li>Embedded Systems & Firmware Development</li>
+                <li>IoT Architecture & Cloud Integration</li>
+                <li>PCB Design & Hardware Prototyping</li>
+                <li>Sensor Networks & Industrial Automation</li>
+                <li>AI in Embedded Systems</li>
+            </ul>
         </div>
     </section>
     
-    <section id="projects" class="section text-center">
+    <section id="projects" class="section text-center scroll-animation">
         <div class="container">
             <h2>Featured Projects</h2>
-            <p>🔹 AI-Driven Air Quality Monitoring System - Implemented real-time data processing to improve pollution analysis accuracy.<br>
-               🔹 Smart Industrial IoT Gateway - Designed a scalable embedded platform for sensor networks.<br>
-               🔹 Portable PM2.5 & PM10 Analyzer - Developed an award-winning device for environmental monitoring.</p>
+            <ul>
+                <li><strong>AI-Driven Air Quality Monitoring System:</strong> Real-time data processing for accurate pollution analysis.</li>
+                <li><strong>Smart Industrial IoT Gateway:</strong> Scalable embedded platform for sensor networks.</li>
+                <li><strong>Portable PM2.5 & PM10 Analyzer:</strong> Award-winning device for environmental monitoring.</li>
+            </ul>
         </div>
     </section>
     
-    <section id="contact" class="section text-center">
+    <section id="contact" class="section text-center scroll-animation">
         <div class="container">
             <h2>Connect With Me</h2>
             <p>Let's collaborate on innovative projects! Reach out via:</p>
@@ -130,6 +152,18 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".scroll-animation");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.2 });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
-
